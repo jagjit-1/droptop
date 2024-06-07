@@ -1,7 +1,6 @@
 // src/FallingObject.js
 import React, { useEffect } from 'react';
 import './FallingObject.css';
-import cloud from './assets/cloud.png';
 
 const FallingObject = ({ id, onClick, left }) => {
     useEffect(() => {
@@ -29,9 +28,7 @@ const FallingObject = ({ id, onClick, left }) => {
             className="falling-object"
             style={{ left: `${left}px` }}
             onClick={() => onClick(id, true)}
-        >
-            <img height={50} src={cloud} />
-        </div>
+        />
     );
 };
 
