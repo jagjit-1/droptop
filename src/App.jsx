@@ -9,6 +9,12 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.expand();
+    }
+  }, [])
+
+  useEffect(() => {
     // Spawn new object every second
     const interval = setInterval(() => {
       setObjects((prevObjects) => [
