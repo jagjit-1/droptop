@@ -44,7 +44,7 @@ const App = () => {
       <div style={{ color: 'white', fontWeight: 500, fontSize: "25px" }}>
         The current score {score}
         <div>
-          {user}
+          {JSON.stringify(user)}
         </div>
         <div>
           {searchParams.get('tgWebAppStartParam')}
