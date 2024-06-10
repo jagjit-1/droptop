@@ -1,6 +1,7 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import FallingObject from './FallingObject';
+import { useSearchParams } from "react-router-dom";
 import './App.css';
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
   const [counter, setCounter] = useState(0);
   const [score, setScore] = useState(0);
   const [user, setUser] = useState("null");
+  let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
@@ -43,6 +45,9 @@ const App = () => {
         The current score {score}
         <div>
           {user}
+        </div>
+        <div>
+          {searchParams.get('tgWebAppStartParam')}
         </div>
       </div>
 
