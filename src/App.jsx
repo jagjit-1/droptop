@@ -9,7 +9,7 @@ const App = () => {
   const [counter, setCounter] = useState(0);
   const [score, setScore] = useState(0);
   const [user, setUser] = useState("null");
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
