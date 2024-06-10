@@ -7,10 +7,15 @@ const App = () => {
   const [objects, setObjects] = useState([]);
   const [counter, setCounter] = useState(0);
   const [score, setScore] = useState(0);
+  const [user, setUser] = useState("null");
 
   useEffect(() => {
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.expand();
+      const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
+      if (initDataUnsafe && initDataUnsafe.user) {
+        setUser(initDataUnsafe.user);
+      }
     }
   }, [])
 
@@ -36,7 +41,11 @@ const App = () => {
     <div className="App">
       <div style={{ color: 'white', fontWeight: 500, fontSize: "25px" }}>
         The current score {score}
+        <div>
+          {user}
+        </div>
       </div>
+
       {objects.map((object) => (
         <FallingObject
           key={object.id}
